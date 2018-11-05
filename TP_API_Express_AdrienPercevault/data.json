@@ -1,0 +1,25 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "name": "Jessica",
+            "password": "Nigri"
+        },
+        {
+            "id": "2",
+            "name": "Meg",
+            "password": "Turner"
+        }
+    ],
+    "items": [
+        {
+            "id": "1",
+            "label": "label",
+            "image": "image",
+            "description": "description"
+        }
+    ],
+    "list": [
+        {}
+    ]
+}
