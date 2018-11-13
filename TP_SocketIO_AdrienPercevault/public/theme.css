@@ -1,0 +1,83 @@
+/* body {
+    background-color: #000000;
+} */
+
+button {
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    transition-duration: 0.4s;
+}
+
+#submitMessageBtn {
+    width: 100%;
+}
+
+#messageBox {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #818181;
+    background-color: #ffffff;
+    height: 50vh;
+    padding: 16px 32px;
+    margin: 5px 0;
+    overflow: auto;
+}
+
+#pseudoInput {
+    width: 25%;
+    text-align:center;
+    padding: 12px 24px;
+    margin: 5px 0;
+}
+
+#pseudoInputDiv {
+    text-align:center;
+}
+
+#submitPseudoBtn {
+    background-color: #f44336;
+    padding: 16px 32px;
+    margin: 5px 0;
+}
+
+#messageInput {
+    width: 100%;
+    padding: 16px 32px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+#messagePrivateInput {
+    width: 25%;
+    padding: 6px 12px;
+    margin: 0px 10px;
+    box-sizing: border-box;
+}
+
+#submitMessagePrivateBtn {
+    padding: 8px 16px;
+    background-color: #f44336;
+}
+
+#submitMessageBtn {
+    background-color: #f44336;
+    padding: 16px 32px;
+    margin: 5px 0;
+}
+
+#listDiv {
+    text-align: center;
+    color: #000000;
+    margin: 5px 0;
+}
+
+h1 {
+    text-align: center;
+    color: #000000;
+    font-size: 45px;
+}

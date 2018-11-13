@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="theme.css">
+        <script src="/socket.io/socket.io.js"></script>
+    </head>
+
+    <body>
+        <div id="pseudoInputDiv"> 
+            <input type="text" id="pseudoInput" placeholder="Entrez votre pseudo"/>
+            <button id="submitPseudoBtn">Validate</button> 
+        </div>
+
+        <h1>Boite de dialogue :</h1>
+        <div id="messageBox">
+            <div id="messageDiv">
+
+            </div>
+        </div>
+
+        <div id="messageInputDiv">
+            <input type="text" id="messageInput" placeholder="Entrez votre texte" />
+            <button id="submitMessageBtn">Send</button> 
+        </div>
+
+        <h1>Liste des personnes connectées :</h1>
+        <div id="listDiv">
+        </div>
+
+    </body>
+
+    <script>
+        const submitPseudoBtn = document.getElementById('submitPseudoBtn')
+
+        var socket = io();
+        var messageDiv = document.getElementById('messageDiv')
+        var submitMessageBtn = document.getElementById('submitMessageBtn')
+        var messageInput = document.getElementById('messageInput')
+        var listDiv = document.getElementById('listDiv')
+        var listUser = []
+
+        submitMessageBtn.addEventListener('click', () => {
+            console.log(messageInput)
+            socket.emit('message', pseudoInput.value + ' : ' + messageInput.value)
+            messageDiv.innerHTML += '<p><b>Moi : ' + messageInput.value + '</b></p>'
+            messageInput.value = ''
+        })
+
+        submitPseudoBtn.addEventListener('click', () => {
+            socket.emit('pseudoChange', pseudoInput.value)
+        })
+
+        socket.on('message', data => {
+            console.log('message received : ', data)
+            messageDiv.innerHTML += '<p>' + data + '</p>'
+        })
+
+        socket.on('list', (list) => {
+            listuser = list
+            listDiv.innerHTML = ''
+            list.forEach(element => {
+                const newP = document.createElement('p')
+                newP.innerHTML = element.pseudo +
+                    '<input type="text" id="messagePrivateInput" placeholder="Entrez votre texte" />' 
+                listDiv.appendChild(newP)
+
+                messagePrivateInput = document.getElementById('messagePrivateInput')
+                newP.addEventListener('click', (elem) => {
+                    console.log(messagePrivateInput)
+                    socket.emit('message', pseudoInput.value + ' : ' + messagePrivateInput.value)
+                    messagePrivateInput.value = ''
+                })
+            })
+        })
+    </script>
+</html>
